@@ -144,10 +144,10 @@ class _ListaComApiState extends State<ListaComApi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Consumo Avançado Com Lista"),
+        title: const Text("Consumo Avançado Com Lista"),
       ),
       body: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             Row(
@@ -155,19 +155,19 @@ class _ListaComApiState extends State<ListaComApi> {
               children: [
                 ElevatedButton(
                     onPressed: _post,
-                    child: Text("Salvar")
+                    child: const Text("Salvar")
                 ),
                 ElevatedButton(
                     onPressed: _put,
-                    child: Text("Atualizar")
+                    child: const Text("Atualizar")
                 ),
                 ElevatedButton(
                     onPressed: _patch,
-                    child: Text("Atualizar 1")
+                    child: const Text("Atualizar 1")
                 ),
                 ElevatedButton(
                     onPressed: _delete,
-                    child: Text("Deletar")
+                    child: const Text("Deletar")
                 )
               ],
 
@@ -181,7 +181,7 @@ class _ListaComApiState extends State<ListaComApi> {
                   switch (snapshot.connectionState) {
                     case ConnectionState.none:
                     case ConnectionState.waiting:
-                      return Center(
+                      return const Center(
                           child: CircularProgressIndicator()
                       );
                       break;
@@ -208,7 +208,7 @@ class _ListaComApiState extends State<ListaComApi> {
                       break;
                   }
 
-                  return Center();
+                  return const Center();
                 },
 
 

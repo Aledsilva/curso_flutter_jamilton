@@ -42,34 +42,32 @@ class _ConsumoServicoWebState extends State<ConsumoServicoWeb> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Consumo Serviço Web"),
+        title: const Text("Consumo Serviço Web"),
       ),
-      body: Container(
-        child: Padding(
-            padding: EdgeInsets.all(40),
-          child: Column(
-            children: [
-              TextField(
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: "Digite o cep: ex: 01000-010"
-                ),
-                style: TextStyle(
-                  fontSize: 20
-                ),
-                controller: _controllerCep,
+      body: Padding(
+          padding: const EdgeInsets.all(40),
+        child: Column(
+          children: [
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: "Digite o cep: ex: 01000-010"
               ),
-              ElevatedButton(
-                  onPressed: _recuperarCep,
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blue
-                  ),
-                  child: const Text("Clique aqui!")
+              style: const TextStyle(
+                fontSize: 20
               ),
-              Text(_resultado),
+              controller: _controllerCep,
+            ),
+            ElevatedButton(
+                onPressed: _recuperarCep,
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue
+                ),
+                child: const Text("Clique aqui!")
+            ),
+            Text(_resultado),
 
-            ],
-          ),
+          ],
         ),
       ),
     );

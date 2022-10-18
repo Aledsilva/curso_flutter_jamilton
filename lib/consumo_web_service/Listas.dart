@@ -34,10 +34,10 @@ class _ListasState extends State<Listas> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Aulas Lista"),
+        title: const Text("Aulas Lista"),
       ),
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: ListView.builder(
           itemCount: _itens.length,
             itemBuilder: (context, indice){
@@ -50,7 +50,7 @@ class _ListasState extends State<Listas> {
 
                       return AlertDialog(
                         title: Text(_itens[indice]["titulo"]),
-                        titleTextStyle: TextStyle(
+                        titleTextStyle: const TextStyle(
                             color: Colors.black
                         ),
                         content: Text(_itens[indice]["descricao"]),
@@ -61,7 +61,7 @@ class _ListasState extends State<Listas> {
                                 print("Selecionado: Sim");
                                 Navigator.pop(context);
                               },
-                              child: Text("Sim")
+                              child: const Text("Sim")
                           ),
                           ElevatedButton(
                               onPressed: (){
@@ -72,7 +72,7 @@ class _ListasState extends State<Listas> {
                           ),
                         ],
 
-                        contentTextStyle: TextStyle(
+                        contentTextStyle: const TextStyle(
                           color: Colors.black38
                         ),
                         backgroundColor: Colors.amber,
