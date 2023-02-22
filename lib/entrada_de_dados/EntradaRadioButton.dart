@@ -15,7 +15,7 @@ class _EntradaRadioButtonState extends State<EntradaRadioButton> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Entrada Radio Button"),
+        title: const Text("Entrada Radio Button"),
       ),
       body: Container(
         child: Column(
@@ -23,7 +23,7 @@ class _EntradaRadioButtonState extends State<EntradaRadioButton> {
 
             //estrutura usada com Column
             RadioListTile(
-              title: Text("Masculino"),
+              title: const Text("Masculino"),
                 value: "M",
                 groupValue: _escolhaUser,
                 onChanged: (escolha){
@@ -34,7 +34,7 @@ class _EntradaRadioButtonState extends State<EntradaRadioButton> {
             ),
 
             RadioListTile(
-                title: Text("Feminino"),
+                title: const Text("Feminino"),
                 value: "F",
                 groupValue: _escolhaUser,
                 onChanged: (escolha){
@@ -45,7 +45,7 @@ class _EntradaRadioButtonState extends State<EntradaRadioButton> {
             ),
 
             RadioListTile(
-                title: Text("Teste"),
+                title: const Text("Teste"),
                 value: "T",
                 groupValue: _escolhaUser,
                 onChanged: (escolha){
@@ -59,7 +59,7 @@ class _EntradaRadioButtonState extends State<EntradaRadioButton> {
                 onPressed: (){
                   print("Resultado: " + _escolhaUser);
                 },
-                child: Text("Salvar")
+                child: const Text("Salvar")
             )
 
             //Estrutura usada com Row

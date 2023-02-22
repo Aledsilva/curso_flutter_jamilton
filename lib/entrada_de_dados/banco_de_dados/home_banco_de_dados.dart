@@ -28,13 +28,11 @@ class _HomeBancoDeDadosState extends State<HomeBancoDeDados> {
       onCreate: (db, dbVersaoRecente){
         String sql = "CREATE TABLE usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, idade INTEGER)";
 
-
         db.execute(sql);
       }
     );
 
     return retorno;
-
     print("aberto: " + retorno.isOpen.toString());
 
   }
@@ -46,8 +44,8 @@ class _HomeBancoDeDadosState extends State<HomeBancoDeDados> {
 
     Map<String, dynamic> dadosUsuario = {
 
-      "nome" : "João",
-      "idade" : 27
+      "nome" : "Priscila",
+      "idade" : 22
 
     };
 
@@ -67,23 +65,74 @@ class _HomeBancoDeDadosState extends State<HomeBancoDeDados> {
     //String sql = "SELECT * FROM usuarios WHERE nome LIKE '%L%' ";
     String sql = "SELECT * FROM usuarios WHERE 1=1 ORDER BY UPPER(nome) ASC "; //ASCendente DESCendente LIMIT quantidade
 
-
     List usuarios = await bd.rawQuery(sql);
 
     for (var usuario in usuarios ){
+
       print(
         "item id: ${usuario['id'].toString()} "
             " nome: ${usuario['nome']} "
             " idade: ${usuario['idade'].toString()}"
       );
-
     }
 
+  }
 
-    
-    //print("usuarios: " + usuarios.toString());
+
+  _recuperarUsuarioPeloId (int id) async {
+
+    Database bd = await _recuperarBancoDeDados();
+
+    List usuarios = await bd.query(
+      "usuarios",
+        columns: ["id", "nome", "idade"],
+        where: "id = ? ",
+        whereArgs: [id]
+    );
+
+    for(var usuario in usuarios){
+      print(
+          "item id: " + usuario['id'].toString() +
+          "nome: " + usuario['nome'] +
+          "idade: " + usuario['idade'].toString()
+      );
+    }
 
   }
+
+  _excluiUsuario(int id) async {
+
+    Database bd = await _recuperarBancoDeDados();
+
+    int retorno = await bd.delete(
+      "usuarios",
+      // where: "id = ?",
+      // whereArgs: [id]
+      where: " nome = ? AND idade = ?",
+      whereArgs: ["Alexandre", 28]
+    );
+
+    print("item quantidade removida: ${retorno}");
+
+  }
+
+  _atualizarUsuario(int id) async {
+    Database bd = await _recuperarBancoDeDados();
+
+    Map<String, dynamic> dadosUsuario = {
+      "nome" : "Alexandre",
+      "idade" : 23
+    };
+
+    bd.update(
+        "usuarios",
+        dadosUsuario,
+        where: "id = ?",
+        whereArgs: [id]
+    );
+
+  }
+
 
 
   @override
@@ -91,7 +140,12 @@ class _HomeBancoDeDadosState extends State<HomeBancoDeDados> {
 
     //_recuperarBancoDeDados();
     //_salvar();
-    _listarUsuarios();
+
+    //_atualizarUsuario(1);
+    //_recuperarUsuarioPeloId(1);
+    //_excluiUsuario(2);
+    //_listarUsuarios();
+
 
     return Scaffold(
       appBar: AppBar(
@@ -111,7 +165,7 @@ class _HomeBancoDeDadosState extends State<HomeBancoDeDados> {
           Center(
             child: ElevatedButton(
                 onPressed: (){
-
+                  _listarUsuarios();
                 },
                 child: const Text("TESTAR")
             ),

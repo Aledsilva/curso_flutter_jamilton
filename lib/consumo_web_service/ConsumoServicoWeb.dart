@@ -18,7 +18,7 @@ class _ConsumoServicoWebState extends State<ConsumoServicoWeb> {
 
   _recuperarCep() async {
     String cepDigitado = _controllerCep.text;
-    String url = "https://viacep.com.br/ws/${cepDigitado}/json/";
+    String url = "https://viacep.com.br/ws/$cepDigitado/json/";
 
     http.Response response;
 
@@ -30,11 +30,11 @@ class _ConsumoServicoWebState extends State<ConsumoServicoWeb> {
     String localidade = retorno["localidade"];
 
     setState(() {
-      _resultado = "${logradouro}, ${bairro}, ${localidade}";
+      _resultado = "$logradouro, $bairro, $localidade";
     });
 
-    print("resposta logradouro: ${logradouro}");
-    print("resposta: " + response.body);
+    // print("resposta logradouro: ${logradouro}");
+    // print("resposta: " + response.body);
 
   }
 
