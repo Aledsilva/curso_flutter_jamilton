@@ -14,7 +14,10 @@ import 'package:curso_flutter_jamilton/entrada_de_dados/EntradaSwitch.dart';
 import 'package:curso_flutter_jamilton/entrada_de_dados/banco_de_dados/home_banco_de_dados.dart';
 import 'package:curso_flutter_jamilton/manipulacao_de_dados/ManipulacaoPreferencias.dart';
 import 'package:curso_flutter_jamilton/navegacao/TelaUm.dart';
+import 'package:curso_flutter_jamilton/screens/HomePrincipal.dart';
+import 'package:curso_flutter_jamilton/utilizando_midias/MidiasMenuScreen.dart';
 import 'package:curso_flutter_jamilton/utilizando_midias/executando_sons/SonsHomeScreen.dart';
+import 'package:curso_flutter_jamilton/utilizando_midias/executando_videos/VideosHomeScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'entrada_de_dados/CampoTexto.dart';
@@ -24,7 +27,7 @@ import 'entrada_de_dados/CampoTexto.dart';
 void main(){
   runApp(
     const MaterialApp(
-      home: AbasANDTabBar(),
+      home: HomePrincipal(),
     )
   );
 }

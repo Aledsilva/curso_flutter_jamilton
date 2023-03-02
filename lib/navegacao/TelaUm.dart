@@ -16,7 +16,7 @@ class _TelaUmState extends State<TelaUm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tela Um"),
+        title: const Text("Tela Um"),
       ),
       body: Container(
         child: Padding(
@@ -36,7 +36,7 @@ class _TelaUmState extends State<TelaUm> {
                   style: ElevatedButton.styleFrom(
                     primary: Colors.amberAccent
                   ),
-                  child: Text("Ir para a Tela Dois")
+                  child: const Text("Ir para a Tela Dois")
               ),
 
             ],
