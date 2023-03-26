@@ -18,7 +18,7 @@ class _AbasANDTabBarState extends State<AbasANDTabBar> with SingleTickerProvider
   void initState() {
     super.initState();
 
-    _tabController = TabController(length: 3, vsync: this, initialIndex: 2);
+    _tabController = TabController(length: 3, vsync: this, initialIndex: 0);
   }
 
   @override

@@ -15,32 +15,32 @@ class _TelaUmState extends State<TelaUm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white60,
       appBar: AppBar(
         title: const Text("Tela Um"),
       ),
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            children: [
+      body: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
 
-              ElevatedButton(
-                  onPressed: (){
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => TelaDois(valor: passandoValor)
-                        )
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.amberAccent
-                  ),
-                  child: const Text("Ir para a Tela Dois")
-              ),
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.of(context).pushNamed('/naveg-tela-dois', arguments: {
+                    'valor': passandoValor
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.amberAccent
+                ),
+                child: const Text("Ir para a Tela Dois",
+                style: TextStyle(
+                  color: Colors.black
+                ),)
+            ),
 
-            ],
-          ),
+          ],
         ),
       ),
     );

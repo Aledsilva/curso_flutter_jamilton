@@ -9,6 +9,26 @@ class HomePrincipal extends StatefulWidget {
 
 class _HomePrincipalState extends State<HomePrincipal> {
 
+  Widget _botaumRapidaum(String nomeDoBotao, String nomeDaRota){
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(5, 0, 5, 15),
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              primary: Colors.blue, padding: const EdgeInsets.all(20)),
+          onPressed: () {
+            Navigator.pushNamed(context, nomeDaRota);
+          },
+          child: Text(
+            nomeDoBotao,
+            style: const TextStyle(fontSize: 18),
+          )),
+    );
+
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,86 +38,19 @@ class _HomePrincipalState extends State<HomePrincipal> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+          padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, padding: const EdgeInsets.all(20)),
-                  onPressed: () {},
-                  child: const Text("Navegação entre telas",
-                    style: TextStyle(
-                        fontSize: 18
-                    ),)),
-              const Divider(height: 10),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, padding: const EdgeInsets.all(20)),
-                  onPressed: () {},
-                  child: const Text("Manipulação de preferências",
-                    style: TextStyle(
-                        fontSize: 18
-                    ),)),
-              const Divider(height: 10),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, padding: const EdgeInsets.all(20)),
-                  onPressed: () {},
-                  child: const Text("Entrada de Dados",
-                    style: TextStyle(
-                        fontSize: 18
-                    ),)
-                  //aqui vamos ir pra outra tela com opções
-                  ),
-              const Divider(height: 10),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, padding: const EdgeInsets.all(20)),
-                  onPressed: () {},
-                  child: const Text("Consumo Web-Service",
-                    style: TextStyle(
-                        fontSize: 18
-                    ),)),
-              const Divider(height: 10),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, padding: const EdgeInsets.all(20)),
-                  onPressed: () {},
-                  child: const Text("Baixando Arquivos (PDF)",
-                    style: TextStyle(
-                        fontSize: 18
-                    ),)),
-              const Divider(height: 10),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, padding: const EdgeInsets.all(20)),
-                  onPressed: () {},
-                  child: const Text("Abas de navegação (TabBar)",
-                    style: TextStyle(
-                        fontSize: 18
-                    ),)),
-              const Divider(height: 10),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, padding: const EdgeInsets.all(20)),
-                  onPressed: () {},
-                  child: const Text("Utilizando Midias",
-                  style: TextStyle(
-                    fontSize: 18
-                  ),
-                  )
-                  //aqui vai pra uma tela pra escolher entre audio e video
-                  ),
-              const Divider(height: 10),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, padding: const EdgeInsets.all(20)),
-                  onPressed: () {},
-                  child: const Text("Firebase",
-                    style: TextStyle(
-                        fontSize: 18
-                    ),)),
+              _botaumRapidaum("Navegação entre telas", '/naveg-tela-um'),
+              _botaumRapidaum("Manipulação de preferências", '/manipulacao-prefs'),
+              _botaumRapidaum("Entrada de Dados", '/entrada-dados-menu'),
+              _botaumRapidaum("Consumo Web-Service e Listas", '/api-e-listas-menu'),
+              _botaumRapidaum("Baixando Arquivos (PDF)", '/baixando-pdf'),
+              _botaumRapidaum("Abas de Navegação (TabBar)", '/abas-e-tabbar'),
+              _botaumRapidaum("Utilizando Midias", '/midias-menu'),
+              _botaumRapidaum("Firebase", '/fire-base-aula'),
+
             ],
           ),
         ),

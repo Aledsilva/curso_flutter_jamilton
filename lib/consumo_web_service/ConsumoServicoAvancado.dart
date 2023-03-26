@@ -22,42 +22,47 @@ class _ConsumoServicoAvancadoState extends State<ConsumoServicoAvancado> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Map>(
-      //initialData: ,
-        future: _recuperarPreco(),
-        builder: (context, snapshot){
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Consumo Web Avançado (preço do Bitcon)"),
+      ),
+      body: FutureBuilder<Map>(
+        //initialData: ,
+          future: _recuperarPreco(),
+          builder: (context, snapshot){
 
-          String resultado = "";
+            String resultado = "";
 
-          switch( snapshot.connectionState ){
-            case ConnectionState.none :
-              print("conexao none");
-              break;
+            switch( snapshot.connectionState ){
+              case ConnectionState.none :
+                print("conexao none");
+                break;
 
-            case ConnectionState.waiting :
-              print("conexao waiting");
-              resultado = "Carregando...";
-              break;
+              case ConnectionState.waiting :
+                print("conexao waiting");
+                resultado = "Carregando...";
+                break;
 
-            case ConnectionState.active :
-              print("conexao active");
-              break;
+              case ConnectionState.active :
+                print("conexao active");
+                break;
 
-            case ConnectionState.done :
-              print("conexao done");
+              case ConnectionState.done :
+                print("conexao done");
 
-              if( snapshot.hasError){
-                resultado = "Erro ao carregar os dados";
-              }else{
-                double valor = snapshot.data?["BRL"]["buy"];
-                resultado = "Preço do bitcoin: ${valor.toString()}";
-              }
-              break;
+                if( snapshot.hasError){
+                  resultado = "Erro ao carregar os dados";
+                }else{
+                  double valor = snapshot.data?["BRL"]["buy"];
+                  resultado = "Preço do bitcoin: ${valor.toString()}";
+                }
+                break;
+            }
+            return Center(
+              child: Text(resultado),
+            );
           }
-          return Center(
-            child: Text(resultado),
-          );
-        }
+      ),
     );
   }
 }

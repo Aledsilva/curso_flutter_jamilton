@@ -24,7 +24,9 @@ class _MidiasMenuScreenState extends State<MidiasMenuScreen> {
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.blue, padding: const EdgeInsets.all(50)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/exec-audio');
+                },
                 child: const Text(
                   "Executar Sons",
                   style: TextStyle(fontSize: 18),
@@ -33,7 +35,9 @@ class _MidiasMenuScreenState extends State<MidiasMenuScreen> {
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.blue, padding: const EdgeInsets.all(50)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/exec-video');
+                },
                 child: const Text(
                   "Executar Vídeos",
                   style: TextStyle(fontSize: 18),
