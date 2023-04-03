@@ -222,6 +222,7 @@ class _FirebaseAulaState extends State<FirebaseAula> {
             ),
 
             _botaumRapidaum("Login e Autenticação", '/fire-login-auth'),
+            _botaumRapidaum("Trabalhando com imagens", '/fire-imagens'),
 
           ],
         ),

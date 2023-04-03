@@ -2,7 +2,6 @@
 
 
 import 'package:curso_flutter_jamilton/abas_tabbar/AbasANDTabBar.dart';
-import 'package:curso_flutter_jamilton/baixando_arquivos/arquivo_excell/baixando_doc_excel.dart';
 import 'package:curso_flutter_jamilton/baixando_arquivos/arquivo_pdf/BaixandoPDF.dart';
 import 'package:curso_flutter_jamilton/consumo_web_service/ApiEListasMenuScreen.dart';
 import 'package:curso_flutter_jamilton/consumo_web_service/ConsumoServicoAvancado.dart';
@@ -14,9 +13,9 @@ import 'package:curso_flutter_jamilton/entrada_de_dados/EntradaDadosMenuScreen.d
 import 'package:curso_flutter_jamilton/entrada_de_dados/EntradaRadioButton.dart';
 import 'package:curso_flutter_jamilton/entrada_de_dados/EntradaSlider.dart';
 import 'package:curso_flutter_jamilton/entrada_de_dados/EntradaSwitch.dart';
-import 'package:curso_flutter_jamilton/entrada_de_dados/banco_de_dados/home_banco_de_dados.dart';
 import 'package:curso_flutter_jamilton/firebase_aula/FirebaseAula.dart';
 import 'package:curso_flutter_jamilton/firebase_aula/login_auth_etc/LoginAutent.dart';
+import 'package:curso_flutter_jamilton/firebase_aula/trabalhando_imagens/TrabalhandoImagens.dart';
 import 'package:curso_flutter_jamilton/manipulacao_de_dados/ManipulacaoPreferencias.dart';
 import 'package:curso_flutter_jamilton/navegacao/TelaDois.dart';
 import 'package:curso_flutter_jamilton/navegacao/TelaUm.dart';
@@ -27,8 +26,6 @@ import 'package:curso_flutter_jamilton/utilizando_midias/executando_videos/Video
 import 'package:flutter/material.dart';
 
 import 'entrada_de_dados/CampoTexto.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 
@@ -73,8 +70,10 @@ void main(){
         '/exec-audio': (context) => const SonsHomeScreen(),
         '/exec-video': (context) => const VideoHomeScreen(),
 
+        //Firebase, autenticações, uploads e downloads
         '/fire-base-aula' : (context) => const FirebaseAula(),
         '/fire-login-auth' : (context) => const LoginAutent(),
+        '/fire-imagens' : (context) => const TrabalhandoImagens(),
 
 
       },
